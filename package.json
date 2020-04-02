@@ -1,0 +1,29 @@
+{
+	"name": "scss-button-mixins",
+	"version": "0.0.0",
+	"description": "SCSS Mixins for Creating Consistant and Awesome Buttons",
+	"license": "MIT",
+	"repository": "mattdanielbrown/scss-button-mixins",
+	"author": {
+		"name": "Matt Daniel Brown",
+		"email": "developer@mattdanielbrown.com",
+		"url": "mattdanielbrown.com"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		""
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"ava": "^2.1.0",
+		"xo": "^0.24.0"
+	}
+}
