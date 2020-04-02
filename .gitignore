@@ -651,3 +651,4 @@ temp/
 
 # End of https://www.gitignore.io/api/osx,node,macos,webstorm,phpstorm,jetbrains,phpstorm+iml,phpstorm+all,webstorm+all,webstorm+iml,jetbrains+all,jetbrains+iml
 
+.editorconfig
