@@ -1,5 +1,14 @@
+# dependencies
 node_modules
-yarn.lock
+bower_components
+
+# compiled output
+/dist
+/.tmp
+
+# System Files
+.DS_Store
+Thumbs.db
 
 # Created by https://www.gitignore.io/api/osx,node,macos,webstorm,phpstorm,jetbrains,phpstorm+iml,phpstorm+all,webstorm+all,webstorm+iml,jetbrains+all,jetbrains+iml
 # Edit at https://www.gitignore.io/?templates=osx,node,macos,webstorm,phpstorm,jetbrains,phpstorm+iml,phpstorm+all,webstorm+all,webstorm+iml,jetbrains+all,jetbrains+iml
@@ -650,5 +659,3 @@ temp/
 
 
 # End of https://www.gitignore.io/api/osx,node,macos,webstorm,phpstorm,jetbrains,phpstorm+iml,phpstorm+all,webstorm+all,webstorm+iml,jetbrains+all,jetbrains+iml
-
-.editorconfig

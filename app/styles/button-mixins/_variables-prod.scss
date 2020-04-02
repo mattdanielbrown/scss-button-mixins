@@ -1,0 +1,108 @@
+/**
+ *------------------------------------------------------------------------------
+ *  SCSS Button Mixins (v0.1.3)
+ *------------------------------------------------------------------------------
+ *  Matt Daniel Brown <dev@mattbrown.email>
+ *  https://scss-button-mixins.mattdbrown.dev
+ *  Edited April 2nd, 08:31am
+ *------------------------------------------------------------------------------
+**/
+
+
+$fallback-font          : system-ui, -apple-system,
+                          BlinkMacSystemFont, Helvetica Neue,
+                          Helvetica, Arial, sans-serif;
+$font-family            : $fallback-font !default;
+
+//——————————————————————————————————————————————————————————————————————————————
+// Colors
+//——————————————————————————————————————————————————————————————————————————————
+
+// Color Primitives
+$red                          : #e0474c;
+$green                        : #00c07f;
+$blue                         : #6a4cff;
+$purple                       : #7575dd;
+$yellow                       : darkorange;
+
+// Theme Colors
+$default-button-color         : #cccccc;
+$default-button-text-color    : #555555;
+$primary-color                : $blue;
+$secondary-color              : #2d2c2e;
+$warning-color                : $yellow;
+$danger-color                 : $red;
+$success-color                : $green;
+
+
+//——————————————————————————————————————————————————————————————————————————————
+// Configuration Values
+//——————————————————————————————————————————————————————————————————————————————
+
+// Interaction State Adjustments
+$hover-adjustment             : 3%;
+$focus-adjustment             : 8%;
+$active-adjustment            : 12%;
+
+// Button Types
+$button-type--solid           : "SOLID";
+$button-type--outline         : "OUTLINE";
+$button-type--rounded         : "ROUNDED";
+
+// General
+$button-cursor                : pointer;
+
+// Breakpoint
+$block-to-inline-breakpoint   : 560px !default;
+
+// Selectors
+$button-selectors: ('button, .button, [type=button], [type=submit], [type=reset]');
+
+//——————————————————————————————————————————————————————————————————————————————
+// Default Values
+//——————————————————————————————————————————————————————————————————————————————
+
+$default-button-border-radius : 3px;
+$default-button-border-width  : 2px;
+$default-button-change-dur    : 180ms;
+$default-button-change-props  : all;
+$default-button-display       : inline-block;
+$default-button-line-height   : 2.5;
+$default-button-font-size     : 1.125em;
+$default-button-margin        : 0 0 1rem 1rem;
+$default-button-min-height    : 1em;
+$default-button-min-width     : 148px;
+$default-button-v-padding     : 0;
+$default-button-h-padding     : 0.25em;
+$default-button-padding       : $default-button-v-padding $default-button-h-padding;
+$default-button-outline       : none;
+$default-button-font-family   : $font-family;
+$default-button-font-weight   : 600;
+$default-button-letter-spacing: 1px;
+
+//——————————————————————————————————————————————————————————————————————————————
+// Assigned Values
+//——————————————————————————————————————————————————————————————————————————————
+
+$default-button-type          : $button-type--solid !default;
+$button-border-radius         : $default-button-border-radius !default;
+$button-font-size             : $default-button-font-size !default;
+$button-line-height           : $default-button-line-height !default;
+$button-padding               : $default-button-padding !default;
+$button-border-width          : $default-button-border-width !default;
+$button-change-dur            : $default-button-change-dur !default;
+$button-change-props          : $default-button-change-props !default;
+$button-transition            : $button-change-props $button-change-dur !default;
+$button-min-height            : $default-button-min-height !default;
+$button-min-width             : $default-button-min-width !default;
+$button-outline               : $default-button-outline !default;
+$button-font-family           : $default-button-font-family !default;
+$button-font-weight           : $default-button-font-weight !default;
+$button-letter-spacing        : $default-button-letter-spacing !default;
+$button-border-style          : solid;
+$button-block-width           : 100%;
+$button-block-margins         : 1rem 0;
+$button-block-display         : block;
+$button-appearence            : none;
+$button-user-select           : none;
+$rounded-border-radius        : 2em;

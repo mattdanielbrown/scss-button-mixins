@@ -1,0 +1,192 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <title>SCSS Buttons Mixins | Demo</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+    <!-- endbuild -->
+
+  </head>
+  <body class="docs-page">
+    <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
+      <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- NAVIGATION BAR ———————————————————————————————————————————————————— -->
+    <nav role="navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Install</a></li>
+        <li><a href="#">Setup / Config</a></li>
+        <li><a href="getting-started-variables.html" class="active">Getting Started</a></li>
+      </ul>
+    </nav>
+
+
+    <!-- PAGE HEADER ————————————————————————————————————————————————————————-->
+    <header role="banner">
+      <hgroup>
+        <h1>&lbrace;SCSS Button Mixins&rbrace;</h1>
+        <h2>Demo &amp; Docs Home</h2>
+      </hgroup>
+    </header>
+
+
+    <!-- MAIN PAGE CONTENT ————————————————————————————————————————————————— -->
+    <main role="main">
+      <header>
+        <ul class="navigation-links">
+          <li><a href="full-code-index.html">&uparrow; Full Code Index</a></li>
+          <li><a href="full-code-utilities.html">&rightarrow; Utilities</a></li>
+        </ul>
+      </header>
+      <section id="variables">
+        <h3>Variables</h3>
+
+<pre><code class="scss">
+/**
+ *------------------------------------------------------------------------------
+ *  SCSS Button Mixins (v0.1.3)
+ *------------------------------------------------------------------------------
+ *  Matt Daniel Brown &lt;dev@mattbrown.email&gt;
+ *  https://scss-button-mixins.mattdbrown.dev
+ *  Edited April 2nd, 08:31am
+ *------------------------------------------------------------------------------
+**/
+
+
+$fallback-font          : system-ui, -apple-system,
+                          BlinkMacSystemFont, Helvetica Neue,
+                          Helvetica, Arial, sans-serif;
+$font-family            : $fallback-font !default;
+
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+// Colors
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+
+// Color Primitives
+$red                          : #e0474c;
+$green                        : #00c07f;
+$blue                         : #6a4cff;
+$purple                       : #7575dd;
+$yellow                       : darkorange;
+
+// Theme Colors
+$default-button-color         : #cccccc;
+$default-button-text-color    : #555555;
+$primary-color                : $blue;
+$secondary-color              : #2d2c2e;
+$warning-color                : $yellow;
+$danger-color                 : $red;
+$success-color                : $green;
+
+
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+// Configuration Values
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+
+// Interaction State Adjustments
+$hover-adjustment             : 3%;
+$focus-adjustment             : 8%;
+$active-adjustment            : 12%;
+
+// Button Types
+$button-type--solid           : &quot;SOLID&quot;;
+$button-type--outline         : &quot;OUTLINE&quot;;
+$button-type--rounded         : &quot;ROUNDED&quot;;
+
+// General
+$button-cursor                : pointer;
+
+// Breakpoint
+$block-to-inline-breakpoint   : 560px !default;
+
+// Selectors
+$button-selectors: ('button, .button, [type=button], [type=submit], [type=reset]');
+
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+// Default Values
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+
+$default-button-border-radius : 3px;
+$default-button-border-width  : 2px;
+$default-button-change-dur    : 180ms;
+$default-button-change-props  : all;
+$default-button-display       : inline-block;
+$default-button-line-height   : 2.5;
+$default-button-font-size     : 1.125em;
+$default-button-margin        : 0 0 1rem 1rem;
+$default-button-min-height    : 1em;
+$default-button-min-width     : 148px;
+$default-button-v-padding     : 0;
+$default-button-h-padding     : 0.25em;
+$default-button-padding       : $default-button-v-padding $default-button-h-padding;
+$default-button-outline       : none;
+$default-button-font-family   : $font-family;
+$default-button-font-weight   : 600;
+$default-button-letter-spacing: 1px;
+
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+// Assigned Values
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+
+$button-border-style          : solid;
+$button-block-width           : 100%;
+$button-block-margins         : 1rem 0;
+$button-block-display         : block;
+$button-appearence            : none;
+$button-user-select           : none;
+$rounded-border-radius        : 2em;
+
+$default-button-type          : $button-type--solid !default;
+$button-border-radius         : $default-button-border-radius !default;
+$button-font-size             : $default-button-font-size !default;
+$button-line-height           : $default-button-line-height !default;
+$button-padding               : $default-button-padding !default;
+$button-border-width          : $default-button-border-width !default;
+$button-change-dur            : $default-button-change-dur !default;
+$button-change-props          : $default-button-change-props !default;
+$button-transition            : $button-change-props $button-change-dur !default;
+$button-min-height            : $default-button-min-height !default;
+$button-min-width             : $default-button-min-width !default;
+$button-outline               : $default-button-outline !default;
+$button-font-family           : $default-button-font-family !default;
+$button-font-weight           : $default-button-font-weight !default;
+$button-letter-spacing        : $default-button-letter-spacing !default;
+
+
+        </code></pre>
+      </section>
+      <footer>
+        <ul class="navigation-links">
+          <li><a href="full-code-index.html">&uparrow; Full Code Index</a></li>
+          <li><a href="full-code-utilities.html">&rightarrow; Utilities</a></li>
+        </ul>
+      </footer>
+    </main>
+
+
+    <!-- PAGE FOOTER ————————————————————————————————————————————————————————-->
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2020. All Rights Reserved</p>
+    </footer>
+
+
+    <!-- ==== JAVASCRIPT =================================================== -->
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- endbuild -->
+  </body>
+</html>

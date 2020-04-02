@@ -1,0 +1,249 @@
+/**
+ *------------------------------------------------------------------------------
+ *  SCSS Button Mixins (v0.1.3)
+ *------------------------------------------------------------------------------
+ *  Matt Daniel Brown <dev@mattbrown.email>
+ *  https://scss-button-mixins.mattdbrown.dev
+ *  Edited April 2nd, 08:31am
+ *------------------------------------------------------------------------------
+**/
+
+//——————————————————————————————————————————————————————————————————————————————
+// _button-base.scss : Base and Overall Button Style Definition and Assignment
+//——————————————————————————————————————————————————————————————————————————————
+
+%button-base {
+  appearance     : $button-appearence;
+  user-select    : $button-user-select;
+  background     : $default-button-color;
+  border-color   : $default-button-color;
+  border-radius  : $button-border-radius;
+  border-style   : $button-border-style;
+  border-width   : $button-border-width;
+  color          : $default-button-text-color;
+  cursor         : $button-cursor;
+  display        : $button-block-display;
+  font-family    : $button-font-family;
+  font-size      : $button-font-size;
+  font-weight    : $button-font-weight;
+  letter-spacing : $button-letter-spacing;
+  line-height    : $button-line-height;
+  margin         : $button-block-margins;
+  min-height     : $button-min-height;
+  min-width      : $button-min-width;
+  padding        : $button-padding;
+  transition     : $button-transition;
+  width          : $button-block-width;
+  text-align     : center;
+  vertical-align : middle !important;
+  position       : relative;
+  * {
+    vertical-align : middle;
+  }
+
+  &::-moz-focus-inner {
+    //outline: none;
+    border : none;
+  }
+
+  $_hoveredColor: darkenColorForState($default-button-color, hover);
+  $_focusedColor: darkenColorForState($default-button-color, focus);
+  $_activeColor: darkenColorForState($default-button-color, active);
+
+  &:hover {
+    background   : $_hoveredColor;
+    border-color : $_hoveredColor;
+  }
+  &:focus {
+    background   : $_focusedColor;
+    border-color : $_focusedColor;
+  }
+  &:active {
+    background   : $_activeColor;
+    border-color : $_activeColor;
+  }
+}
+
+#{$button-selectors} {
+
+  // Base button styles
+  @extend %button-base;
+
+  // Primary
+  &.primary {
+    background   : $primary-color;
+    border-color : $primary-color;
+    color        : white;
+
+    &:hover { @include buttonColorsForState($primary-color, hover, false); }
+    &:focus { @include buttonColorsForState($primary-color, focus, false); }
+    &:active { @include buttonColorsForState($primary-color, active, false); }
+
+    @include applyCustomFocusEffectForColor();
+  }
+  // Primary Outline
+  &.primary.outline, &.outline.primary {
+    //background   : transparent;
+    //border-color : $primary-color;
+    //color        : $primary-color;
+    //
+    //&:hover { @include buttonColorsForState($primary-color, hover, true); }
+    //&:focus { @include buttonColorsForState($primary-color, focus, true); }
+    //&:active { @include buttonColorsForState($primary-color, active, true); }
+
+    @include button($button-type--outline, $primary-color, false);
+
+    @include applyCustomFocusEffectForColor();
+  }
+
+  // Secondary
+  &.secondary {
+    background   : $secondary-color;
+    border-color : $secondary-color;
+    color        : white;
+
+    &:hover { @include buttonColorsForState($secondary-color, hover, false); }
+    &:focus { @include buttonColorsForState($secondary-color, focus, false); }
+    &:active { @include buttonColorsForState($secondary-color, active, false); }
+
+    @include applyCustomFocusEffectForColor($secondary-color);
+  }
+  // Secondary Outline
+  &.secondary.outline, &.outline.secondary {
+    //background   : transparent;
+    //border-color : $secondary-color;
+    //color        : $secondary-color;
+    //
+    //&:hover { @include buttonColorsForState($secondary-color, hover, true); }
+    //
+    //&:focus { @include buttonColorsForState($secondary-color, focus, true); }
+    //
+    //&:active { @include buttonColorsForState($secondary-color, active, true); }
+
+    @include button($button-type--outline, $secondary-color, false);
+    @include applyCustomFocusEffectForColor($secondary-color);
+  }
+
+  // Outline
+  &.outline {
+    @include button($button-type--outline, $default-button-text-color, false);
+    @include applyCustomFocusEffectForColor($default-button-text-color);
+  }
+
+  // Success Style
+  &.success {
+    @include button($button-type--solid, $success-color, false);
+    @include applyCustomFocusEffectForColor($success-color);
+  }
+  // Success Style, Outline-Type
+  &.success.outline, &.outline.success {
+    @include button($button-type--outline, $success-color, false);
+    @include applyCustomFocusEffectForColor($success-color);
+  }
+
+  // Warning Style
+  &.warning {
+    @include button($button-type--solid, $warning-color, false);
+    @include applyCustomFocusEffectForColor($warning-color);
+  }
+  // Warning style, outline type
+  &.warning.outline, &.outline.warning {
+    @include button($button-type--outline, $warning-color, false);
+    @include applyCustomFocusEffectForColor($warning-color);
+    &.rounded, &.round {
+      @include button($button-type--outline, $warning-color, true);
+    }
+  }
+
+  // Danger style
+  &.danger {
+    @include button($button-type--solid, $danger-color, false);
+    @include applyCustomFocusEffectForColor($danger-color);
+    &.outline {
+      @include button($button-type--outline, $danger-color, false);
+      @include applyCustomFocusEffectForColor($danger-color);
+    }
+  }
+
+  // Rounded Button Types
+  &.round, &.rounded {
+    border-radius: $rounded-border-radius !important;
+  }
+
+}
+
+a.button, a[type=button], a[role=button], a[type=submit], a[type=reset] {
+  text-decoration : none;
+  letter-spacing : 1px;
+}
+
+.icon-button {
+  display : inline-flex !important;
+  flex-direction : row !important;
+  align-items : center !important;
+  align-content : center !important;
+  justify-content : space-between !important;
+  width : unset !important;
+  max-width : unset;
+  padding : 0 1.5em;
+  * {
+    //border: red solid 1px;
+  }
+  .svg-wrapper {
+    height : 100%;
+    max-height : 28px;
+    width : 20%;
+    margin-right : 10%;
+  }
+  .icon-button-text {
+    //border: red solid 1px;
+    display : inline;
+    line-height : $button-line-height;
+    vertical-align : middle;
+    width : 80%;
+  }
+}
+
+.svg-wrapper {
+  //border: red solid 1px;
+  //vertical-align : middle;
+  line-height : $button-line-height;
+  height : 100% !important;
+  display : inline-block !important;
+  position : absolute;
+  top : 0;
+  bottom : 0;
+  right : 8px;
+  text-align : right;
+  //margin-left : auto;
+  //display : flex;
+  flex-direction : column;
+  align-items : center;
+  align-content : center;
+  justify-content : center;
+  svg, svg * {
+    line-height : 1 !important;
+    padding : 0;
+    margin : auto;
+    vertical-align : middle;
+  }
+}
+
+a {
+  .svg-wrapper {
+    //max-height : 100%;
+
+    //display : block;
+
+
+
+  }
+}
+
+@media screen and (min-width : $block-to-inline-breakpoint) {
+  %button-base {
+    display : inline-block;
+    margin  : 1rem 1rem 1rem 0;
+    width   : unset;
+  }
+}

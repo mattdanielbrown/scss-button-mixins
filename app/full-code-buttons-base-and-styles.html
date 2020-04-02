@@ -1,0 +1,262 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <title>SCSS Buttons Mixins | Demo</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
+      <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- NAVIGATION BAR ———————————————————————————————————————————————————— -->
+    <nav role="navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="install.html" class="active">Install</a></li>
+        <li><a href="">Setup / Config</a></li>
+        <li><a href="getting-started-variables.html">Getting Started</a></li>
+        <li><a href="full-code-buttons-base-and-styles.html" class="active">Full Code : Base &amp; Style</a></li>
+        <li class="github-item"><a href="" class="github-link" id="github-link"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><title>logo-github</title><g fill="#005cd6"><path fill-rule="evenodd" clip-rule="evenodd" fill="#005cd6" d="M16,0.4c-8.8,0-16,7.2-16,16c0,7.1,4.6,13.1,10.9,15.2 c0.8,0.1,1.1-0.3,1.1-0.8c0-0.4,0-1.4,0-2.7c-4.5,1-5.4-2.1-5.4-2.1c-0.7-1.8-1.8-2.3-1.8-2.3c-1.5-1,0.1-1,0.1-1 c1.6,0.1,2.5,1.6,2.5,1.6c1.4,2.4,3.7,1.7,4.7,1.3c0.1-1,0.6-1.7,1-2.1c-3.6-0.4-7.3-1.8-7.3-7.9c0-1.7,0.6-3.2,1.6-4.3 c-0.2-0.4-0.7-2,0.2-4.2c0,0,1.3-0.4,4.4,1.6c1.3-0.4,2.6-0.5,4-0.5c1.4,0,2.7,0.2,4,0.5C23.1,6.6,24.4,7,24.4,7 c0.9,2.2,0.3,3.8,0.2,4.2c1,1.1,1.6,2.5,1.6,4.3c0,6.1-3.7,7.5-7.3,7.9c0.6,0.5,1.1,1.5,1.1,3c0,2.1,0,3.9,0,4.4 c0,0.4,0.3,0.9,1.1,0.8C27.4,29.5,32,23.5,32,16.4C32,7.6,24.8,0.4,16,0.4z"></path></g></svg></a></li>
+      </ul>
+    </nav>
+
+
+    <!-- PAGE HEADER ————————————————————————————————————————————————————————-->
+    <header role="banner">
+      <hgroup>
+        <h1>&lbrace;SCSS Button Mixins&rbrace;</h1>
+        <h2>Demo &amp; Docs : Full Code</h2>
+        <h3><samp>_button-bases.scss</samp> : Button Base and Styles</h3>
+      </hgroup>
+    </header>
+
+
+    <!-- MAIN PAGE CONTENT ————————————————————————————————————————————————— -->
+    <main role="main">
+      <header>
+        <ul class="navigation-links">
+          <li><a href="full-code-index.html">&leftarrow; Variables</a></li>
+          <li><a href="full-code-utilities.html">&rightarrow; Button Base &amp; Styles</a></li>
+        </ul>
+      </header>
+      <section id="button-base">
+        <h3>Button Base and Styles</h3>
+<pre><code class="scss">
+/**
+ *------------------------------------------------------------------------------
+ *  SCSS Button Mixins (v0.1.3)
+ *------------------------------------------------------------------------------
+ *  Matt Daniel Brown &lt;dev@mattbrown.email&gt;
+ *  https://scss-button-mixins.mattdbrown.dev
+ *  Edited April 2nd, 08:31am
+ *------------------------------------------------------------------------------
+**/
+
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+// _button-base.scss : Base and Overall Button Style Definition and Assignment
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+
+%button-base {
+  appearance     : $button-appearence;
+  user-select    : $button-user-select;
+  background     : $default-button-color;
+  border-color   : $default-button-color;
+  border-radius  : $button-border-radius;
+  border-style   : $button-border-style;
+  border-width   : $button-border-width;
+  color          : $default-button-text-color;
+  cursor         : $button-cursor;
+  display        : $button-block-display;
+  font-family    : $button-font-family;
+  font-size      : $button-font-size;
+  font-weight    : $button-font-weight;
+  letter-spacing : $button-letter-spacing;
+  line-height    : $button-line-height;
+  margin         : $button-block-margins;
+  min-height     : $button-min-height;
+  min-width      : $button-min-width;
+  padding        : $button-padding;
+  transition     : $button-transition;
+  width          : $button-block-width;
+  text-align : center;
+  vertical-align : middle;
+
+  &amp;::-moz-focus-inner {
+    //outline: none;
+    border : none;
+  }
+
+  $_hoveredColor: darkenColorForState($default-button-color, hover);
+  $_focusedColor: darkenColorForState($default-button-color, focus);
+  $_activeColor: darkenColorForState($default-button-color, active);
+
+  &amp;:hover {
+    background   : $_hoveredColor;
+    border-color : $_hoveredColor;
+  }
+  &amp;:focus {
+    background   : $_focusedColor;
+    border-color : $_focusedColor;
+  }
+  &amp;:active {
+    background   : $_activeColor;
+    border-color : $_activeColor;
+  }
+}
+
+#{$button-selectors} {
+
+  // Base button styles
+  @extend %button-base;
+
+  // Primary
+  &amp;.primary {
+    background   : $primary-color;
+    border-color : $primary-color;
+    color        : white;
+
+    &amp;:hover { @include buttonColorsForState($primary-color, hover, false); }
+    &amp;:focus { @include buttonColorsForState($primary-color, focus, false); }
+    &amp;:active { @include buttonColorsForState($primary-color, active, false); }
+
+    @include applyCustomFocusEffectForColor();
+  }
+
+  // Secondary
+  &amp;.secondary {
+    background   : $secondary-color;
+    border-color : $secondary-color;
+    color        : white;
+
+    &amp;:hover { @include buttonColorsForState($secondary-color, hover, false); }
+    &amp;:focus { @include buttonColorsForState($secondary-color, focus, false); }
+    &amp;:active { @include buttonColorsForState($secondary-color, active, false); }
+
+    @include applyCustomFocusEffectForColor($secondary-color);
+  }
+
+  // Outline
+  &amp;.outline {
+    @include button($button-type--outline, $default-button-text-color, false);
+    @include applyCustomFocusEffectForColor($default-button-text-color);
+  }
+
+  // Primary Outline
+  &amp;.primary.outline, &amp;.outline.primary {
+    //background   : transparent;
+    //border-color : $primary-color;
+    //color        : $primary-color;
+    //
+    //&amp;:hover { @include buttonColorsForState($primary-color, hover, true); }
+    //&amp;:focus { @include buttonColorsForState($primary-color, focus, true); }
+    //&amp;:active { @include buttonColorsForState($primary-color, active, true); }
+
+    @include button($button-type--outline, $primary-color, false);
+
+    @include applyCustomFocusEffectForColor();
+  }
+
+  // Secondary Outline
+  &amp;.secondary.outline, &amp;.outline.secondary {
+    //background   : transparent;
+    //border-color : $secondary-color;
+    //color        : $secondary-color;
+    //
+    //&amp;:hover { @include buttonColorsForState($secondary-color, hover, true); }
+    //
+    //&amp;:focus { @include buttonColorsForState($secondary-color, focus, true); }
+    //
+    //&amp;:active { @include buttonColorsForState($secondary-color, active, true); }
+
+    @include button($button-type--outline, $secondary-color, false);
+    @include applyCustomFocusEffectForColor($secondary-color);
+  }
+
+  // Success Style
+  &amp;.success {
+    @include button($button-type--solid, $success-color, false);
+    @include applyCustomFocusEffectForColor($success-color);
+  }
+  // Success Style, Outline-Type
+  &amp;.success.outline, &amp;.outline.success {
+    @include button($button-type--outline, $success-color, false);
+    @include applyCustomFocusEffectForColor($success-color);
+  }
+
+  // Warning Style
+  &amp;.warning {
+    @include button($button-type--solid, $warning-color, false);
+    @include applyCustomFocusEffectForColor($warning-color);
+  }
+  // Warning style, outline type
+  &amp;.warning.outline, &amp;.outline.warning {
+    @include button($button-type--outline, $warning-color, false);
+    @include applyCustomFocusEffectForColor($warning-color);
+    &amp;.rounded, &amp;.round {
+      @include button($button-type--outline, $warning-color, true);
+    }
+  }
+
+  // Danger style
+  &amp;.danger {
+    @include button($button-type--solid, $danger-color, false);
+    @include applyCustomFocusEffectForColor($danger-color);
+    &amp;.outline {
+      @include button($button-type--outline, $danger-color, false);
+      @include applyCustomFocusEffectForColor($danger-color);
+    }
+  }
+
+  &amp;.round, &amp;.rounded {
+    border-radius: $rounded-border-radius !important;
+  }
+
+}
+
+@media screen and (min-width : $block-to-inline-breakpoint) {
+  %button-base {
+    display : inline-block;
+    margin  : 1rem 1rem 1rem 0;
+    width   : unset;
+  }
+}
+
+</code></pre>
+      </section>
+      <footer>
+        <ul class="navigation-links">
+          <li><a href="full-code-index.html">&leftarrow; Variables</a></li>
+          <li><a href="full-code-utilities.html">&rightarrow; Button Base &amp; Styles</a></li>
+        </ul>
+      </footer>
+    </main>
+
+
+    <!-- PAGE FOOTER ————————————————————————————————————————————————————————-->
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2020. All Rights Reserved</p>
+    </footer>
+
+
+    <!-- ==== JAVASCRIPT =================================================== -->
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- endbuild -->
+  </body>
+</html>

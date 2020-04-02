@@ -4,5 +4,9 @@
       "githubUsername": "mattdanielbrown",
       "website": "https://mattdanielbrown.com"
     }
+  },
+  "generator-mocha": {
+    "ui": "bdd",
+    "rjs": false
   }
 }
